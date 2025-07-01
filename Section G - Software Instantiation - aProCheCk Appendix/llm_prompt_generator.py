@@ -16,6 +16,7 @@ def task_bpmn_comparison_generator(filename1: str, content1: str, filename2: str
         The response should be structured as a JSON object with the following key-value pairs:
 
     JSON key-value pairs: 
+    {'''The following Chain of Thought passage has been added in the Reasoning Structuring step of the experiment iterations'''}
     1. 'initial_chain_of_thought': Please lay out your chain of thought, on where the contents of the two versions differ and where you identified changes regarding the content of the process in the document.
         Also explain, how you will organize those changes into entries for the technical comparison.
 
@@ -52,6 +53,7 @@ def task_bpmn_comparison_generator(filename1: str, content1: str, filename2: str
         f. The IDs of the elements do not matter, if a control flow with a specific id gets for example exchanged for a new control flow connected to the same elements, that is no change at all.
 
 
+    {'''The following Chain of Thought passages have been added in the Reasoning Structuring step of the experiment iterations'''}
     Respond in the following JSON format:
     {{
          \"initial_chain_of_thought\": \"Explain the main changes found in the two documents and how you will split those up into different changes.\",
@@ -72,7 +74,7 @@ def task_bpmn_comparison_generator(filename1: str, content1: str, filename2: str
     }}
     Hint: If there are no changes to be found, the key-value pairs may also stay empty.
 
-    
+    {'''The following Few Shot prompting examples has been added in the Data Enrichment step of the experiment iterations'''}
     Example changes to clarify dimensions and the scope of one change entry:
         Example 1: A new data object (new database) is added and connected to one task. 
             Correct classification: Only one relevant change of type "data", which includes the connection and new element, no other change.
@@ -130,6 +132,7 @@ def task_txt_coherence_generator(filename1: str, content1: str, txt_filename: st
     The response should be structured as a JSON object with the following key-value pairs:
 
     JSON key-value pairs:
+    {'''The following Chain of Thought passage has been added in the Reasoning Structuring step of the experiment iterations'''}
     1. 'initial_chain_of_thought': Please lay out your chain of thought, on where the changes identifed in the previous comparison conflict with the content of the related textual document.
 
     2. 'content_comparison': Given the structured comparison of the two BPMN versions and the related textual document, as well as the latest version of the BPMN model for reference, please check for every change identified in the model comparison, whether the new version is incoherent with the textual document.
@@ -174,6 +177,7 @@ def task_txt_coherence_generator(filename1: str, content1: str, txt_filename: st
     e. Renaming elements and only adding/deleting/specifying already implied or irrelevant/trivial information is only a unrelated or negligible change.
     f. If a change does not change anything in addition to the already documented and classified relevant changes, it should be classified as negligible.
 
+    {'''The following Chain of Thought passages have been added in the Reasoning Structuring step of the experiment iterations'''}
     Respond in the following JSON format:
     {{
         \"initial_chain_of_thought\": \"Explain whether the different changes identified in the previous comparison conflict with the related textual document.\",
@@ -190,6 +194,7 @@ def task_txt_coherence_generator(filename1: str, content1: str, txt_filename: st
         ],
     }}
 
+    {'''The following Few Shot prompting examples has been added in the Data Enrichment step of the experiment iterations'''}
     Example changes to clarify dimensions and the change category of a change:
     Example 1: A lane is deleted and the tasks are moved to a different lane with a different role attached, while the textual document still refers to the old role.
         Correct Classification: Changes should be classified as Relevant and organization, as the roles change and the textual documentation has wrong information which is incoherent with the new BPMN model.
