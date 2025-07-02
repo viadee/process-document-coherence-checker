@@ -20,6 +20,7 @@ This appendix contains the following documents:
 *   `Section D - Development - aProCheCk Appendix.pdf`
 *   `Section E - Dataset and Focus Group - aProCheCk Appendix.pdf`
 *   `Section F - Notification Examples - aProCheCk Appendix.pdf`
+*   `Section G - Software Instantiation - aProCheCk Appendix`
 
 ## Related Dataset
 
